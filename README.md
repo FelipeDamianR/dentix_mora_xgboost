@@ -27,7 +27,6 @@ Contenido:
 - 3_analisis.ipynb  → correlaciones, covarianzas y PCA
 - 4_5_6_modelo_inicial.ipynb  → modelos base (Logística, Árbol de decisión)
 - Parte_7_8_9_XGBoost_Kmeans_LDA.ipynb  → modelo XGBoost calibrado + KMeans + LDA
-- XGBOOST_modelo_prueba.ipynb  → uso experimental del algoritmo
 - .gitkeep
 
 ---
