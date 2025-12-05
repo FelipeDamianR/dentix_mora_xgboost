@@ -1,27 +1,47 @@
 # dentix_mora_xgboost
-Repositorio con scripts de análisis, PCA, clustering, calibración de umbrales, LDA, KMeans y modelo XGBoost optimizado para predicción de mora crediticia.
 
-Este repositorio contiene el desarrollo completo para predecir mora >30 días, incluyendo limpieza de datos, análisis multivariado, modelado supervisado, segmentación y calibración.
+Repositorio con el flujo completo para modelar mora crediticia ≥30 días con XGBoost, incluyendo limpieza, análisis multivariado, PCA, KMeans, LDA y calibración de umbrales.
 
-## Carpetas
+---
 
-### limpieza_y_datos
-Contiene la base original sin procesar:
-- Base_Dentix_anonimizada.xlsx
+## Carpetas del proyecto
 
-Desde aquí se realizó la depuración y transformación de datos para generar la base numérica usada posteriormente.
+### 1) limpieza_y_datos
+Esta carpeta contiene la base original tal como se recibió y el notebook donde se generó la base limpia final.
 
-### modelado_y_experimentos
-Carpeta donde se ejecuta todo el modelado.
-Incluye la base ya lista para usar y los notebooks del proyecto:
+Contenido:
+- Base_Dentix_anonimizada.xlsx  → datos brutos sin procesar
+- limpieza_codificación.ipynb   → limpieza, tratamiento, codificación y generación de BD_numericas.xlsx
+- .gitkeep
 
-- BD_numericas.xlsx (dataset limpio final)
-- 3_analisis.ipynb
-- 4_5_6_modelo_inicial.ipynb
-- Parte_7_8_9_XGBoost_Kmeans_LDA.ipynb
-- XGBOOST_modelo_prueba.ipynb
+Desde aquí se realizó el preprocesamiento inicial.
 
-## Uso
+---
 
-1. Si se requiere repetir la limpieza, usar la base cruda en `limpieza_y_datos/`.
-2. Para correr modelos directamente, cargar `BD_numericas.xlsx` desde `modelado_y_experimentos/` y ejecutar los notebooks.
+### 2) modelado_y_experimentos
+Aquí se trabaja únicamente con la base final ya procesada.  
+No es necesario limpiar ni transformar nuevamente.
+
+Contenido:
+- BD_numericas.xlsx  → dataset limpio listo para modelar
+- 3_analisis.ipynb  → correlaciones, covarianzas y PCA
+- 4_5_6_modelo_inicial.ipynb  → modelos base (Logística, Árbol de decisión)
+- Parte_7_8_9_XGBoost_Kmeans_LDA.ipynb  → modelo XGBoost calibrado + KMeans + LDA
+- XGBOOST_modelo_prueba.ipynb  → uso experimental del algoritmo
+- .gitkeep
+
+---
+
+## Flujo recomendado de uso
+
+1. Si se quiere replicar la generación del dataset limpio:
+   Ejecutar `limpieza_codificación.ipynb` desde la carpeta `limpieza_y_datos`.
+
+2. Si ya se va directo a modelar:
+   Usar `BD_numericas.xlsx` en la carpeta `modelado_y_experimentos`
+   y ejecutar los notebooks en orden natural (primero análisis → luego modelos).
+
+---
+
+El repositorio permite reproducir todo el pipeline:  
+datos crudos → limpieza → estructura numérica → análisis → modelado → calibración → segmentación e interpretación.
