@@ -27,18 +27,23 @@ Contenido:
 - 3_analisis.ipynb  → correlaciones, covarianzas y PCA
 - 4_5_6_modelo_inicial.ipynb  → modelos base (Logística, Árbol de decisión)
 - Parte_7_8_9_XGBoost_Kmeans_LDA.ipynb  → modelo XGBoost calibrado + KMeans + LDA
+- Hoja_de_Instrucciones_1.pdf → documento con alcance, supuestos, métricas y uso adecuado del modelo
 - .gitkeep
 
 ---
 
 ## Flujo recomendado de uso
 
-1. Si se quiere replicar la generación del dataset limpio:
+1. Si se quiere replicar la generación del dataset limpio:  
    Ejecutar `limpieza_codificación.ipynb` desde la carpeta `limpieza_y_datos`.
 
-2. Si ya se va directo a modelar:
+2. Si ya se va directo a modelar:  
    Usar `BD_numericas.xlsx` en la carpeta `modelado_y_experimentos`
    y ejecutar los notebooks en orden natural (primero análisis → luego modelos).
+
+3. Para entender cómo usar el modelo en operación:  
+   Consultar `Hoja_de_Instrucciones_1.pdf`, donde se describen supuestos, métricas clave,
+   riesgos y la política de decisión basada en umbrales y segmentos de clientes.
 
 ---
 
